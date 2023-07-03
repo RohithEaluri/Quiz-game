@@ -1,0 +1,43 @@
+signin.js 
+
+import React from 'react'
+import firebase from 'firebase'
+import {Button} from '@material-ui/core'
+import {auth} from '../firebase.js'
+
+
+function SignIn
+() {
+  const  signInWithGoogle = () => {
+    console.log("Sfsffs")
+     const provider = new firebase.auth.GoogleAuthProvider()
+     auth.signInWithPopup(provider)
+
+  }
+  return (
+    <div>
+      <Button onClick={signInWithGoogle}>Sign In With Google</Button>
+    </div>
+  )
+}
+
+export default SignIn
+
+firebase 
+import firebase from 'firebase'
+
+const firebaseApp = firebase.initializeApp({
+  apiKey: "AIzaSyCMyeycylX4ZC0SreeTxNTDjGgRyKUI29E",
+  authDomain: "chat-5ebcc.firebaseapp.com",
+  projectId: "chat-5ebcc",
+  storageBucket: "chat-5ebcc.appspot.com",
+  messagingSenderId: "99966988875",
+  appId: "1:99966988875:web:db3a8737241801e2d093ce",
+  measurementId: "G-4C6476XRSF"
+})
+
+const db = firebaseApp.firestore()
+
+const auth = firebase.auth()
+
+export {db, auth}
